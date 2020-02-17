@@ -4,7 +4,6 @@ library( viridis)
 
 # CHANGE ME
 setwd( '/DIRECTORY/LOCATION')
-setwd( '/Users/luh919/Dropbox/Harvard/Manuscripts/eval_local_exposure/CopyEdits_JESEE/simple_and_complex_AQ')
 
 # source R script containing plotting functions
 source( 'functions.R')
