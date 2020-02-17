@@ -1,12 +1,11 @@
 ---
-title: "README"
 author: "Lucas Henneman"
 date: "2/17/2020"
-output: html_document
 ---
 
+# Data and R scripts for reproducing results in "Comparisons of simple and complex methods for quantifying exposure to individual point source air pollution emissions" by Henneman et al. 2020. JESEE.
 
-## R Markdown
+## Included in this repository
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
