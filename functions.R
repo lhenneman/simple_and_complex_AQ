@@ -32,22 +32,10 @@ plot_ranked_facs <- function( ranks.dt,
                               dist.scalebar = 400){
   
   # -- limit data table to units under the rank -- #
-  ranks.dt.trim <- ranks.dt[get( rank.name) <= toprank & state %in% state.abbrev]
+  ranks.dt.units <- ranks.dt[get( rank.name) <= toprank & state %in% state.abbrev]
   
   # -- set name of variable size variable -- #
-  setnames( ranks.dt.trim, size.var, 'size.var')
-  
-  # -- link with PP data if not already  -- #
-  if( !( 'Longitude' %in% names( ranks.dt.trim) & 'Latitude' %in% names( ranks.dt.trim))){
-    D05 <- fread("~/Dropbox/Harvard/ARP/inMAP/Merge_AMPD_NEI/final_merge_nei_ampd_all_units_2005.csv")[, year := 2005]
-    D06 <- fread("~/Dropbox/Harvard/ARP/inMAP/Merge_AMPD_NEI/final_merge_nei_ampd_all_units_2006.csv")[, year := 2006]
-    D11 <- fread("~/Dropbox/Harvard/ARP/inMAP/Merge_AMPD_NEI/final_merge_nei_ampd_all_units_2011.csv")[, year := 2011]
-    D12 <- fread("~/Dropbox/Harvard/ARP/inMAP/Merge_AMPD_NEI/final_merge_nei_ampd_all_units_2012.csv")[, year := 2012]
-    D <- rbind( D05, D06, D11, D12)
-    D[, uID := gsub('_|-|\\*', '.', ID)]
-    ranks.dt.units <- merge( ranks.dt.trim, D, by = c( 'uID', 'year'))
-  } else
-    ranks.dt.units <- ranks.dt.trim
+  setnames( ranks.dt.units, size.var, 'size.var')
   
   # -- find lat/lon range  -- #
   if( is.null( xlims) & is.null( ylims)){

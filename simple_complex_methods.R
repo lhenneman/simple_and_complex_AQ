@@ -28,7 +28,8 @@ data.in_bystate <- data.in[, .( idwe_bystate = sum( idwe.pw),
                                 adj.initial_bystate = sum( initial)),
                            by = .( state, year)]
 
-data.in.m <- melt( data.in, id.vars = c( 'uID', 'year', 'state', 'idwe.pw', 'hyads.pw'),
+data.in.m <- melt( data.in, id.vars = c( 'uID', 'year', 'state', 'idwe.pw', 'hyads.pw',
+                                         'Longitude', 'Latitude'),
                    measure.vars = c( 'initial', 'layers_2-5', 'stack_height', 
                                      'stack_height_plus1', 'stack_height_plus2'),
                    variable.name = 'adj_name', value.name = 'adj.pw')
