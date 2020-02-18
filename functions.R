@@ -9,6 +9,7 @@ eval.fn <- function( Yhat, Yact, mod.name = NULL){
                          NMB = num.diff / denom,
                          NME = abs.diff / denom,
                          MB   = num.diff / length( Yhat),
+                         ME   = abs.diff / length( Yhat),
                          RMSE = sqrt( sum( ( Yhat - Yact) ^ 2, na.rm = T) / length( Yhat)),
                          R.p = cor( Yhat, Yact, use = 'complete.obs') ^ 2,
                          R.s = cor( Yhat, Yact, use = 'complete.obs', method = 'spearman') ^ 2)

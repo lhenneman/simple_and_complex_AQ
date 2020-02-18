@@ -107,7 +107,7 @@ gguse <- ggplot( data = cors.all.use,
               lty = 2) +
   facet_grid( metric ~ year, scales = 'free_y', labeller = label_parsed) +
   expand_limits( y = 0) +
-  scale_y_continuous( expand = expand_scale( .1)) +
+  scale_y_continuous( expand = expansion( .1)) +
   guides(
     color = guide_legend(order = 1,
                          keywidth = 1.5),
@@ -142,9 +142,10 @@ data.month.eval.m <- melt( data.month.eval, id.vars = c( 'state_abbr', 'month'),
                              variable.name = 'metric')
 
 # formatting for plots
+states.use.mo <- c( 'US', 'PA', 'KY', 'GA', 'WI', 'TX', 'CO', 'CA')
 data.month.eval.m[, `:=` ( year.n = year( month),
                              month.n =  factor( month.name[ month( month)], levels = month.name),
-                             state.factor = factor( state_abbr, levels = states.use))]
+                             state.factor = factor( state_abbr, levels = states.use.mo))]
 
 
 ## ====================================================== ##
